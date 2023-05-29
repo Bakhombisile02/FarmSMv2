@@ -40,6 +40,10 @@ To run the Farmer Management Web Application, follow these steps
 
 6. You can now explore and interact with the Farmer Management Web Application.
 
+7. To log in to Employee try st10082221 with password BlackSam02
+
+8. To log in to Farmer try Siyamukela Dlamini with password BlackSam02
+
 ## Technologies Used
 
 The Farmer Management Web Application is built using the following technologies
