@@ -1,0 +1,176 @@
+﻿@model IEnumerable<FarmSMv2.Models.Product>
+
+@{
+    ViewBag.Title = "Products";
+}
+
+<style>
+    body {
+        background-image: url('/img/Ptable.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .filter-section {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+        .filter-section label {
+            margin-right: 10px;
+        }
+
+        .filter-section input[type="date"] {
+            padding: 6px 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .filter-section .filter-button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .filter-section .filter-button.green-button {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            .filter-section .filter-button.orange-button {
+                background-color: #FFA500;
+                color: white;
+            }
+
+            .filter-section .filter-button:first-child {
+                margin-right: 10px;
+            }
+</style>
+<h2>Products</h2>
+<p>
+    @Html.ActionLink("Add products", "AddProducts", "Home", new { id = ViewBag.Notification }, null)
+</p>
+
+<div class="filter-section">
+    <label for="startDateInput">Start Date:</label>
+    <input type="date" id="startDateInput" />
+    <label for="endDateInput">End Date:</label>
+    <input type="date" id="endDateInput" />
+    <button class="filter-button green-button" onclick="filterTable()">Filter</button>
+    <button class="filter-button orange-button" onclick="resetFilter()">Reset</button>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().product_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().quantity_available)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().date_added)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().date_removed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().product_type_id)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity_available)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_added)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_removed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_type_id)
+            </td>
+            <td>
+             
+            </td>
+        </tr>
+    }
+</table>
+
+<script>
+    function filterTable() {
+        var startDateInput = document.getElementById("startDateInput");
+        var endDateInput = document.getElementById("endDateInput");
+
+        var startDate = new Date(startDateInput.value);
+        var endDate = new Date(endDateInput.value);
+
+        var table = document.getElementsByTagName("table")[0];
+        var rows = table.getElementsByTagName("tr");
+
+        for (var i = 1; i < rows.length; i++) {
+            var dateAddedCell = rows[i].getElementsByTagName("td")[4]; // Index of the date_added column
+            var dateAdded = new Date(dateAddedCell.innerHTML);
+
+            if (dateAdded < startDate || dateAdded > endDate) {
+                rows[i].style.display = "none";
+            } else {
+                rows[i].style.display = "";
+            }
+        }
+    }
+
+    function resetFilter() {
+        var startDateInput = document.getElementById("startDateInput");
+        var endDateInput = document.getElementById("endDateInput");
+
+        startDateInput.value = "";
+        endDateInput.value = "";
+
+        var table = document.getElementsByTagName("table")[0];
+        var rows = table.getElementsByTagName("tr");
+
+        for (var i = 1; i < rows.length; i++) {
+            rows[i].style.display = "";
+        }
+    }
+</script>

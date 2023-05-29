@@ -1,0 +1,68 @@
+﻿@model IEnumerable<FarmSMv2.Models.Farmer>
+
+@{
+    ViewBag.Title = "Farmers";
+}
+
+<style>
+
+    body {
+        background-image: url('/img/Ftable.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .action-links {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+
+<h2>Farmers</h2>
+
+<p>
+    @Html.ActionLink("Add farmer", "AddFarmer", new { @class = "btn btn-primary" })
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Farmer ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Email Address</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var farmer in Model)
+        {
+            <tr>
+                <td>@farmer.farmer_id</td>
+                <td>@farmer.name</td>
+                <td>@farmer.address</td>
+                <td>@farmer.phone_number</td>
+                <td>@farmer.email_address</td>
+                <td class="action-links">
+                    @Html.ActionLink("Products", "Products", new { id = farmer.farmer_id }, new { @class = "btn btn-secondary" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
