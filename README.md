@@ -1,6 +1,12 @@
-# FarmSMv2
+# FarmSMv2 
 
 This prototype web application was developed by Bakhombisile Dlamini as part of the project for PROG7311 in Varsity College. The application is built using Visual Studio and C# and provides a user-friendly interface for managing farmers and their associated products. It allows users to log in with different roles, such as farmer and employee, and perform various tasks related to farmer and product management. The application utilizes a database to store farmer and product information.
+
+## Lecturer Changes 
+
+1. The code is no longer generic and is commented sufficently.
+2. Database is on Azure Cloud and connects with a connection string
+3. Application deployed to the cloud
 
 ## Functionality
 
