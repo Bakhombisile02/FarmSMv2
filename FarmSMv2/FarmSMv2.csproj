@@ -212,6 +212,7 @@
     <Content Include="Models\DBfarmC1.edmx.diagram">
       <DependentUpon>DBfarmC1.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FarmSMv220230622114709 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />

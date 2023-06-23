@@ -10,7 +10,7 @@ namespace FarmSMv2.Controllers
 {
     public class HomeController : Controller
     {
-        public int Id = 0;
+        public int Id = 0;//variable to store id 
         FarmCentralSMEntities1 db = new FarmCentralSMEntities1(); //database connection using Entity Frameworks
 
         public ActionResult AddFarmer() //create farmer page 
@@ -18,6 +18,8 @@ namespace FarmSMv2.Controllers
             return View();
         }
 
+        //--------------------------------------------------------------------------------------//
+        //method to add farmers
         [HttpPost]
         public ActionResult AddFarmer(Farmer farmer) //This saves the data to the database 
         {
@@ -34,6 +36,8 @@ namespace FarmSMv2.Controllers
             }
         }
 
+        //--------------------------------------------------------------------------------------//
+        //method to list farmers 
         public ActionResult Farmers()
         {
             try
@@ -47,11 +51,15 @@ namespace FarmSMv2.Controllers
             }
         }
 
+        //--------------------------------------------------------------------------------------//
+        //welcome page call
         public ActionResult Welcome()
         {
             return View();
         }
 
+        //--------------------------------------------------------------------------------------//
+        //method to add products 
         public ActionResult AddProducts(int id)
         {
             Product product = new Product();
@@ -59,6 +67,7 @@ namespace FarmSMv2.Controllers
 
             return View(product);
         }
+
 
         [HttpPost]
         public ActionResult AddProducts(Product product)
@@ -75,6 +84,8 @@ namespace FarmSMv2.Controllers
             return View(product);
         }
 
+        //--------------------------------------------------------------------------------------//
+        //methid to view products 
         public ActionResult Products(int id)
         {
             try
@@ -99,13 +110,16 @@ namespace FarmSMv2.Controllers
             }
         }
 
-
+        //--------------------------------------------------------------------------------------//
+        //method to logout
         public ActionResult Logout()
         {
             Session.Clear();
             return RedirectToAction("Welcome", "Home");
         }
 
+        //--------------------------------------------------------------------------------------//
+        //method to login 
         [HttpGet]
         public ActionResult FarmerLogin()
         {
@@ -139,6 +153,8 @@ namespace FarmSMv2.Controllers
             }
         }
 
+        //--------------------------------------------------------------------------------------//
+        //method to login employee
 
         [HttpGet]
         public ActionResult EmployeeLogin()
@@ -171,6 +187,9 @@ namespace FarmSMv2.Controllers
                 return View();
             }
         }
+
+        //--------------------------------------------------------------------------------------//
+        //method to register
 
         public ActionResult Register()
         {
@@ -213,3 +232,4 @@ namespace FarmSMv2.Controllers
         }
     }
 }
+//-----------------------------------------------End of File--------------------------------------------------------//

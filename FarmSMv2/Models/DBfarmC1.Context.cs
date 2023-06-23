@@ -25,9 +25,10 @@ namespace FarmSMv2.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<employee> employees { get; set; }
-        public virtual DbSet<Farmer> Farmers { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<ProductType> ProductTypes { get; set; }
+        public virtual DbSet<employee> employees { get; set; } //employee table
+        public virtual DbSet<Farmer> Farmers { get; set; } //farmer table 
+        public virtual DbSet<Product> Products { get; set; }//Products table 
+        public virtual DbSet<ProductType> ProductTypes { get; set; }//Products type table
     }
 }
+//------------------------------------------End of File --------------------------------------------//
