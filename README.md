@@ -6,7 +6,7 @@ This prototype web application was developed by Bakhombisile Dlamini as part of 
 
 1. The code is no longer generic and is commented sufficently.
 2. Database is on Azure Cloud and connects with a connection string
-3. Application deployed to the cloud
+3. Application deployed to the cloud - https://farmsmv220230622114709.azurewebsites.net/
 
 ## Functionality
 
